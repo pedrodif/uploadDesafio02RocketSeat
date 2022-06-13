@@ -1,7 +1,8 @@
 import { MovieCard } from '../components/MovieCard';
 
 export function Content() {
-  <div className="container">
+  return(
+    <div className="container">
     <header>
       <span className="category">Categoria:<span> {selectedGenre.title}</span></span>
     </header>
@@ -14,4 +15,5 @@ export function Content() {
       </div>
     </main>
   </div>
+  )
 }

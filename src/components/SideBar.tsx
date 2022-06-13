@@ -27,7 +27,9 @@ export function SideBar(){
   function handleClickButton(id: number) {
     setSelectedGenreId(id);
   }
-  <nav className="sidebar">
+
+  return(
+    <nav className="sidebar">
     <span>Watch<p>Me</p></span>
 
     <div className="buttons-container">
@@ -41,5 +43,6 @@ export function SideBar(){
         />
       ))}
     </div>
-</nav>
+  </nav>
+  )
 }
