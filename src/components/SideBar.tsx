@@ -9,7 +9,7 @@ import { Button } from './Button';
 import { GenreResponseProps, MovieProps } from '../types';
 
 
-const SideBar = () => {
+export function SideBar(){
   const [selectedGenreId, setSelectedGenreId] = useState(1);
   const [selectedGenre, setSelectedGenre] = useState<GenreResponseProps>({} as GenreResponseProps);
 
@@ -28,21 +28,18 @@ const SideBar = () => {
     setSelectedGenreId(id);
   }
   <nav className="sidebar">
-  <span>Watch<p>Me</p></span>
+    <span>Watch<p>Me</p></span>
 
-  <div className="buttons-container">
-    {genres.map(genre => (
-      <Button
-        key={String(genre.id)}
-        title={genre.title}
-        iconName={genre.name}
-        onClick={() => handleClickButton(genre.id)}
-        selected={selectedGenreId === genre.id}
-      />
-    ))}
-  </div>
-
+    <div className="buttons-container">
+      {genres.map(genre => (
+        <Button
+          key={String(genre.id)}
+          title={genre.title}
+          iconName={genre.name}
+          onClick={() => handleClickButton(genre.id)}
+          selected={selectedGenreId === genre.id}
+        />
+      ))}
+    </div>
 </nav>
 }
-
-export default SideBar;
