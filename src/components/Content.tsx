@@ -1,5 +1,6 @@
 //Components
 import { MovieCard } from '../components/MovieCard';
+import Header from './Header';
 
 // Types
 import { GenreResponseProps, MovieProps } from '../types';
@@ -12,10 +13,7 @@ interface IProps {
 export function Content({movies, selectedGenre} : IProps) {
   return(
     <div className="container">
-    <header>
-      <span className="category">Categoria:<span> {selectedGenre.title}</span></span>
-    </header>
-
+    <Header title={selectedGenre.title} />
     <main>
       <div className="movies-list">
         {movies.map(movie => (
