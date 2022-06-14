@@ -21,9 +21,6 @@ export function App() {
   const [selectedGenre, setSelectedGenre] = useState<GenreResponseProps>({} as GenreResponseProps);
   const [selectedGenreId, setSelectedGenreId] = useState(1);
 
-
-  console.log(selectedGenre)
-
   useEffect(() => {
     api.get<GenreResponseProps[]>('genres').then(response => {
       setGenres(response.data);

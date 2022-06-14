@@ -30,7 +30,6 @@ export function SideBar({genres, selectedGenreId,  setMovies, setSelectedGenreId
 
 
   function handleClickButton(id: number) {
-    console.log(id)
     setSelectedGenreId(id);
   }
 
