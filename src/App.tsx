@@ -19,6 +19,10 @@ export function App() {
   const [genres, setGenres] = useState<GenreResponseProps[]>([]);
   const [movies, setMovies] = useState<MovieProps[]>([]);
   const [selectedGenre, setSelectedGenre] = useState<GenreResponseProps>({} as GenreResponseProps);
+  const [selectedGenreId, setSelectedGenreId] = useState(1);
+
+
+  console.log(selectedGenre)
 
   useEffect(() => {
     api.get<GenreResponseProps[]>('genres').then(response => {
@@ -28,8 +32,8 @@ export function App() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>
-      <SideBar />
-      <Content />
+      <SideBar genres={genres} setMovies={setMovies} selectedGenreId={selectedGenreId} setSelectedGenreId={setSelectedGenreId} setSelectedGenre={setSelectedGenre}/>
+      <Content movies={movies} selectedGenre={selectedGenre} />
     </div>
   )
 }

@@ -8,10 +8,15 @@ import { Button } from './Button';
 // Types
 import { GenreResponseProps, MovieProps } from '../types';
 
+interface IProps {
+  genres: GenreResponseProps[];
+  selectedGenreId: number;
+  setMovies: (data: MovieProps[]) => void;
+  setSelectedGenreId: (data: number) => void;
+  setSelectedGenre: (data: GenreResponseProps) => void;
+}
 
-export function SideBar(){
-  const [selectedGenreId, setSelectedGenreId] = useState(1);
-  const [selectedGenre, setSelectedGenre] = useState<GenreResponseProps>({} as GenreResponseProps);
+export function SideBar({genres, selectedGenreId,  setMovies, setSelectedGenreId, setSelectedGenre} : IProps){
 
   useEffect(() => {
     api.get<MovieProps[]>(`movies/?Genre_id=${selectedGenreId}`).then(response => {
@@ -25,6 +30,7 @@ export function SideBar(){
 
 
   function handleClickButton(id: number) {
+    console.log(id)
     setSelectedGenreId(id);
   }
 

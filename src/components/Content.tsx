@@ -1,6 +1,15 @@
+//Components
 import { MovieCard } from '../components/MovieCard';
 
-export function Content() {
+// Types
+import { GenreResponseProps, MovieProps } from '../types';
+
+interface IProps {
+  movies: MovieProps[];
+  selectedGenre: GenreResponseProps;
+}
+
+export function Content({movies, selectedGenre} : IProps) {
   return(
     <div className="container">
     <header>
